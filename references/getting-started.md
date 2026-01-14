@@ -1,84 +1,83 @@
 # Getting Started with Cowork
 
+> **Research Preview**: Cowork is not production-ready. Use with caution and follow security best practices.
+
 ## Prerequisites
 
-Before using Cowork, ensure you have:
+| Requirement | Details |
+|-------------|---------|
+| **App** | Claude Desktop (macOS only) |
+| **Subscription** | Claude Max ($100 or $200/month) |
+| **Connection** | Active internet required |
 
-1. **Claude Desktop app** installed (macOS only currently)
-2. **Claude Max subscription** active
-3. **Active internet connection**
+## Step-by-Step Setup
 
-## Accessing Cowork
+### 1. Open Claude Desktop
 
-1. Open the **Claude Desktop** application
-2. Look for the **mode selector** in the interface
-3. Click on the **Cowork tab**
-4. You'll switch to **"Tasks" mode**
+Launch the Claude Desktop application on your Mac.
 
-## Your First Task
+### 2. Find the Mode Selector
 
-### Step 1: Choose a Folder
-Select a folder on your computer that Claude can access. This is your "workspace" for Cowork tasks.
+Look for the mode selector in the interface - this lets you switch between regular chat and Cowork.
 
-### Step 2: Describe Your Task
-Be specific about what you want Claude to accomplish. Good examples:
+### 3. Switch to Cowork/Tasks Mode
 
-**Good:**
-> "Organize all the PDF files in my Documents/Invoices folder by year, creating subfolders for 2023, 2024, and 2025"
+Click on the **Cowork tab** or **Tasks mode** option.
 
-**Less Good:**
-> "Clean up my files"
+### 4. Designate a Folder
 
-### Step 3: Let Claude Work
-Once you assign a task:
-- Claude will make a plan
-- Show you progress updates
-- Complete the work independently
-- Notify you when done
+Select a folder on your computer that Claude can access.
 
-## Tips for Success
+**Important**: Only grant access to folders with non-sensitive files.
 
-### Be Specific
-The more detail you provide, the better the results:
-- Specify file types
-- Describe desired organization
-- Mention any naming conventions
+### 5. Assign Your First Task
 
-### Start Small
-Begin with simple tasks to understand how Cowork operates before tackling complex workflows.
+Start with something simple and low-risk:
 
-### Keep the App Open
-Cowork requires Claude Desktop to remain open during task execution.
+```
+"List all files in this folder and tell me what you see"
+```
 
-### Review Outputs
-Always review Claude's work, especially for tasks involving data manipulation or document creation.
+## Your First Real Task
 
-## Common First Tasks
+Once comfortable, try a simple organization task:
 
-1. **File sorting** - Organize downloads by type or date
-2. **Data extraction** - Pull information from multiple files into a spreadsheet
-3. **Document drafting** - Create reports from notes or research
-4. **Batch renaming** - Rename files following a pattern
+```
+"Sort the files in this folder by file type into subfolders"
+```
 
-## Troubleshooting
+## Safety Checklist
 
-### Task Not Starting
-- Ensure you're in Tasks mode (not regular chat)
-- Check your Max subscription status
-- Verify internet connection
+Before using Cowork:
 
-### Can't Access Files
-- Confirm you've granted folder access
-- Check file permissions
+- [ ] Back up any important files in the folder
+- [ ] Remove sensitive files (passwords, keys, credentials)
+- [ ] Start with read-only tasks to test
+- [ ] Use clear, unambiguous language
 
-### Task Taking Too Long
-- Complex tasks may take time
-- Check progress updates
-- Consider breaking into smaller tasks
+## What to Expect
+
+1. Claude will analyze your request
+2. You'll see progress updates
+3. The app must stay open during execution
+4. Results appear in your designated folder
+
+## If Something Goes Wrong
+
+- Tasks stop if you close the app
+- You can interrupt by closing Claude Desktop
+- Always have backups of important files
+- Report issues to Anthropic (research preview feedback)
 
 ## Next Steps
 
-Once comfortable with basics:
-- Explore **Connectors** for external data
-- Try **parallel task queuing**
-- Use **Skills** for professional documents
+After getting comfortable:
+
+1. Try file organization tasks
+2. Test content analysis
+3. Experiment with multi-step tasks
+4. Provide feedback to help improve the feature
+
+---
+
+*Cowork is a research preview. Features and behavior may change.*

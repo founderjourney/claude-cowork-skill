@@ -1,143 +1,118 @@
-# Cowork Capabilities
+# Cowork Capabilities (Verified)
 
-## Core Capabilities Overview
+> **Source Verification**: All capabilities listed here are confirmed by official Anthropic announcements or independent testing from trusted sources.
 
-Cowork transforms Claude from a conversational assistant into an autonomous agent capable of executing complex, multi-step tasks on your computer.
+## Verified Capabilities
 
-## 1. Local File Access
+### 1. Local File Access
 
-### What It Does
-- Reads files from your designated folders
-- Creates new files and documents
-- Edits existing documents
-- Moves and organizes files
-- Renames files in bulk
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/), [Simon Willison](https://simonwillison.net/2026/Jan/12/claude-cowork/)
 
-### Supported Operations
-| Operation | Description |
-|-----------|-------------|
-| Read | Access file contents |
-| Write | Create new files |
-| Edit | Modify existing files |
-| Move | Relocate files between folders |
-| Rename | Change file names |
-| Delete | Remove files (with caution) |
+| Operation | Verified | Notes |
+|-----------|----------|-------|
+| Read files | Yes | Within designated folders only |
+| Create files | Yes | New files in accessible folders |
+| Modify files | Yes | Edit existing files |
+| Move files | Yes | Between accessible locations |
+| Rename files | Yes | Batch renaming supported |
+| Delete files | Yes | **Use with caution** |
 
-### File Types
-Claude can work with various file types including:
-- Documents (PDF, DOCX, TXT)
-- Spreadsheets (XLSX, CSV)
-- Presentations (PPTX)
-- Images (for organization, not editing)
-- Code files
+### 2. Multi-Step Task Execution
 
-## 2. Multi-Task Coordination
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
 
-### Parallel Execution
-Unlike traditional conversations, Cowork can:
-- Queue multiple tasks simultaneously
-- Execute tasks in parallel workstreams
-- Coordinate between related subtasks
+> "Multi-step task execution without requiring user input between actions"
 
-### Task Breakdown
-For complex requests, Claude:
-1. Analyzes the overall goal
-2. Breaks it into discrete subtasks
-3. Determines dependencies
-4. Executes efficiently
+- Claude breaks complex tasks into steps
+- Executes sequentially without prompting
+- Reports progress during execution
 
-### Example
-Request: "Create a quarterly report from sales data"
+### 3. Sandboxed Environment
 
-Claude's subtasks:
-1. Read all sales data files
-2. Calculate totals and trends
-3. Generate charts
-4. Create report document
-5. Add executive summary
+**Source**: [Simon Willison](https://simonwillison.net/2026/Jan/12/claude-cowork/)
 
-## 3. Professional Document Creation
+- Uses Apple's VZVirtualMachine for containerization
+- Files are mounted into the sandbox
+- Cannot access files outside designated folders
+- Isolation prevents system-wide access
 
-### Excel Spreadsheets
-- Create new workbooks
-- Add formulas and calculations
-- Format cells and ranges
-- Generate charts
-- Multiple worksheets
+## Verified Use Cases
 
-### PowerPoint Presentations
-- Create slide decks
-- Add text and formatting
-- Include structured content
-- Professional layouts
+Based on official sources:
 
-### Word Documents
-- Formatted reports
-- Structured documents
-- Headers and sections
-- Table of contents
+| Use Case | Source | Verified |
+|----------|--------|----------|
+| File organization | TechCrunch | Yes |
+| Expense reports from receipts | TechCrunch | Yes |
+| Media file management | TechCrunch | Yes |
+| Content analysis | Simon Willison | Yes (tested with 46 files) |
+| Research across files | Simon Willison | Yes |
 
-## 4. Extended Execution
+## NOT Verified (Removed)
 
-### No Timeouts
-Unlike regular Claude conversations that have limits, Cowork:
-- Runs tasks to completion
-- No conversation timeouts
-- Handles long-running operations
+The following claims appeared in early documentation but are **not confirmed** by official sources:
 
-### Progress Tracking
-- Real-time status updates
-- Completion notifications
-- Error reporting
+- Excel spreadsheet creation with formulas
+- PowerPoint presentation generation
+- Word document creation
+- "Zero timeout" execution
+- "Parallel workstream" coordination
 
-## Advanced Features
+*These may be possible but are not documented in verified sources.*
 
-### Connectors
-External data source integrations:
-- Access information beyond local files
-- Connect to services and APIs
-- Expand data availability
+## Technical Architecture
 
-### Skills
-Enhanced capabilities:
-- Professional document templates
-- Specialized formatting
-- Advanced operations
+```
+┌─────────────────────────────────────────┐
+│            Claude Desktop App            │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│          Cowork Mode Selector            │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│    VZVirtualMachine Sandbox Container    │
+│    - Mounted folder access only          │
+│    - Isolated from system files          │
+└─────────────────────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────┐
+│         Your Designated Folder           │
+└─────────────────────────────────────────┘
+```
 
-### Browser Integration
-Works with Claude in Chrome:
-- Web-based research
-- Online data gathering
-- Combined local + web tasks
+## Browser Integration
 
-## Execution Model
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
 
-### Virtual Machine Environment
-Tasks execute in a controlled environment:
-- Isolated execution
-- Safe operations
-- Predictable behavior
+When paired with **Claude in Chrome** extension:
+- Can complete tasks requiring web access
+- Research and verification tasks
+- Combined local + web workflows
 
-### 5-Step Process
-1. **Analyze** - Understand request
-2. **Plan** - Create execution strategy
-3. **Execute** - Perform operations
-4. **Coordinate** - Manage workstreams
-5. **Deliver** - Output results
+## Security Model
 
-## Best Practices
+**Source**: [Simon Willison](https://simonwillison.net/2026/Jan/12/claude-cowork/)
 
-### For File Operations
-- Start with read-only tasks to test
-- Back up important files before modifications
-- Use specific folder paths
+| Security Feature | Status |
+|------------------|--------|
+| Sandboxed execution | Yes |
+| Folder-level permissions | Yes |
+| Prompt injection mitigations | Active development |
+| User confirmation for destructive actions | Recommended |
 
-### For Document Creation
-- Provide clear structure requirements
-- Specify formatting preferences
-- Review outputs before sharing
+### Anthropic's Warnings
 
-### For Complex Tasks
-- Break into phases if needed
-- Provide examples of desired output
-- Use iterative refinement
+1. Prompt injection remains a risk
+2. Accidental file deletion possible
+3. Sensitive data should not be accessible
+4. Research preview - not production ready
+
+---
+
+*Last verified: January 13, 2026*
+*Sources: TechCrunch, Simon Willison, VentureBeat*

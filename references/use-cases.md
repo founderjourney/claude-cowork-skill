@@ -1,163 +1,134 @@
-# Cowork Use Cases
+# Cowork Use Cases (Verified)
 
-## File Organization
+> **Important**: Only use cases confirmed by official sources or independent testing are included here.
 
-### Sort Downloads by Type
-```
-Organize my Downloads folder: move all PDFs to Documents/PDFs,
-images to Pictures/Downloads, and spreadsheets to Documents/Data
-```
+## Tier 1: Officially Confirmed
 
-### Archive Old Files
-```
-Find all files in my Projects folder older than 1 year and
-move them to an Archive folder, organized by original project
-```
+These use cases are mentioned in Anthropic's official communications or verified tech press:
 
-### Clean Up Duplicates
+### File Organization
+
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
+
 ```
-Identify duplicate files in my Documents folder and create
-a report showing which files are duplicated and their locations
+"Sort all the PDFs in my Downloads folder by date and move them to appropriate subfolders"
 ```
 
-## Data Processing
-
-### Compile Invoices
 ```
-Go through all PDFs in my Invoices folder, extract the vendor name,
-date, and amount, and create an Excel spreadsheet summarizing everything
+"Organize my documents by file type into separate folders"
 ```
 
-### Merge Spreadsheets
+### Expense Reports
+
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
+
+> "Assembling expense reports from receipt photos"
+
 ```
-Combine all CSV files in my Data folder into a single Excel workbook,
-with each source file as a separate tab
+"Go through the receipt photos in this folder and create a summary of expenses"
 ```
 
-### Generate Reports
+### Media Management
+
+**Source**: [TechCrunch](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
+
+> "Managing media files"
+
 ```
-Analyze the sales data in quarterly_sales.xlsx and create a summary
-report with key metrics, trends, and a chart showing monthly performance
+"Organize my photos by month and year into separate folders"
 ```
 
-## Document Creation
+## Tier 2: Independently Tested
 
-### Meeting Notes to Report
-```
-Take the notes from my meeting_notes.txt file and create a
-professional Word document with an executive summary, action items,
-and next steps
-```
+These use cases were tested by trusted independent sources:
 
-### Research Synthesis
-```
-Read through all the PDF research papers in my Research folder
-and create a PowerPoint presentation summarizing the key findings
-```
+### Content Analysis
 
-### Create Presentation
+**Source**: [Simon Willison](https://simonwillison.net/2026/Jan/12/claude-cowork/)
+
+Simon tested with 46 draft files:
+
 ```
-Using the data in project_metrics.xlsx, create a stakeholder
-presentation with charts showing our progress and achievements
+"Identify all draft files modified in the last 90 days and check which ones are ready for publication"
 ```
 
-## Administrative Tasks
+**Result**: Claude successfully:
+- Located 46 relevant files
+- Executed 44 web searches to verify publication status
+- Provided actionable recommendations
 
-### Rename Files in Bulk
-```
-Rename all files in my Photos/Vacation folder to follow the pattern
-"2024-vacation-001.jpg", "2024-vacation-002.jpg", etc.
-```
+### Research Tasks
 
-### Create Folder Structure
+**Source**: [Simon Willison](https://simonwillison.net/2026/Jan/12/claude-cowork/)
+
 ```
-Set up a project folder structure for a new client:
-create folders for Contracts, Deliverables, Communications,
-and Meeting Notes
+"Search through these files and identify patterns"
 ```
 
-### Backup Organization
 ```
-Create a backup manifest listing all files in my Work folder,
-including file sizes and last modified dates
+"Analyze these text files and create a summary of findings"
 ```
 
-## Business Workflows
+## Tier 3: Mentioned but Not Detailed
 
-### Client Onboarding
-```
-Create a new client folder with our standard structure,
-copy the template documents from Templates/NewClient,
-and update the client name in each document
-```
+These appear in coverage but without specific verification:
 
-### Weekly Report Preparation
-```
-Gather this week's completed task files, compile them into
-a summary document, and create a status update for stakeholders
-```
+- Scanning social media posts
+- Analyzing conversations
+- General file search and categorization
 
-### Invoice Processing
-```
-Process all new invoices in the Inbox folder: extract details,
-add them to the master tracking spreadsheet, and move processed
-invoices to the Processed folder
-```
+## What NOT to Expect (Unverified)
 
-## Research & Analysis
+The following were **removed** from documentation due to lack of verification:
 
-### Literature Review
-```
-Read through the research papers in my Literature folder and
-create a comparison table of methodologies and findings
-```
+| Claim | Status | Why Removed |
+|-------|--------|-------------|
+| Excel with formulas | Unverified | No official source confirms this |
+| PowerPoint creation | Unverified | No official source confirms this |
+| Word document formatting | Unverified | No official source confirms this |
+| Parallel task execution | Unverified | Language was marketing, not technical |
 
-### Competitive Analysis
+## Best Practices for Tasks
+
+### DO: Be Specific
+
 ```
-Analyze the documents in my Competitors folder and create
-a spreadsheet comparing features, pricing, and positioning
+GOOD: "Sort PDFs in Downloads by date, creating folders for 2024, 2025, 2026"
+
+BAD: "Clean up my files"
 ```
 
-### Data Cleanup
-```
-Review the data in customers.csv, identify and remove duplicates,
-standardize the formatting, and export a cleaned version
-```
+### DO: Start Small
 
-## Creative Projects
+Test with non-critical folders first:
 
-### Content Calendar
 ```
-Create a content calendar spreadsheet for the next month based
-on the topic ideas in my content_ideas.txt file
+"List all files in this test folder and tell me what you see"
 ```
 
-### Portfolio Organization
+### DO: Provide Context
+
 ```
-Organize my portfolio work samples by project type, create
-a summary document listing each piece with description and date
+"These are receipt photos from business travel. Create a summary with date, vendor, and amount for each."
 ```
 
-## Tips for Writing Good Task Descriptions
+### DON'T: Assume Complex Outputs
 
-### Be Specific
-- Name exact folders and files
-- Describe desired output format
-- Specify any constraints
+Until verified, don't assume Claude can:
+- Create formatted spreadsheets with formulas
+- Generate presentation slides
+- Produce complex formatted documents
 
-### Provide Context
-- What's the purpose of the task?
-- Any preferences or standards to follow?
-- Expected timeline or priority?
+## Security Reminders
 
-### Include Examples
-- Sample output if available
-- Naming conventions to follow
-- Formatting preferences
+Before any task:
 
-### Break Down Complex Tasks
-Instead of:
-> "Organize everything"
+1. **Back up important files** - Mistakes can happen
+2. **Start with read-only tasks** - Test before modifying
+3. **Avoid sensitive folders** - No passwords, keys, or credentials
+4. **Be specific** - Ambiguous instructions can cause unexpected behavior
 
-Try:
-> "First, sort documents by type. Then, create a dated folder structure. Finally, move files to appropriate folders."
+---
+
+*Last verified: January 13, 2026*
+*Only includes use cases from verified sources*

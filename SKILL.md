@@ -1,75 +1,69 @@
 ---
 name: cowork
-description: Claude Cowork - Agentic productivity capabilities for Claude Desktop that enable file access, multi-task coordination, and extended execution.
-version: 1.0.0
+description: Claude Cowork - Agentic file access for Claude Desktop. Read, modify, and organize files through natural language (research preview).
+version: 1.1.0
 author: Anthropic (skill packaged by Pathfinders Labs)
 triggers:
   - cowork
   - Claude Desktop tasks
-  - agentic productivity
   - file automation
-  - multi-task coordination
+  - file organization
 ---
 
 # Cowork Skill
 
-Claude Cowork brings agentic capabilities to Claude Desktop, enabling Claude to take on complex, multi-step tasks and execute them autonomously. Instead of responding to prompts one at a time, Claude can work independently on your behalf.
+Claude Cowork brings agentic capabilities to Claude Desktop, enabling Claude to work with files on your computer through natural language. Instead of explaining how to do tasks, Claude can execute them directly.
+
+> **Important**: Cowork is a **research preview**. Anthropic warns about risks including prompt injection and accidental file operations. Use with caution and provide clear, unambiguous instructions.
 
 ## When to Use This Skill
 
 Activate this skill when:
 - User asks about **Cowork** features or setup
 - User wants to automate **file organization** tasks
-- User needs **multi-task coordination** (parallel workstreams)
-- User wants to create **professional documents** (Excel, PowerPoint)
+- User needs **multi-step file operations**
 - User asks about **Claude Desktop agentic mode**
-- User needs **extended execution** tasks without timeouts
 
 ## What is Cowork?
 
-Cowork is a research preview feature that extends Claude's agentic capabilities beyond coding to general productivity work. Key concept:
+Cowork is described by Anthropic as "Claude Code for the rest of your work" - it extends agentic capabilities to non-developers. Key concept:
 
-> "Give Claude access to your files and let it organize, create, and edit documents while you focus on what matters."
+> "A sandboxed instance of Claude Code, but requires far less technical savvy to set up." - TechCrunch
 
-## Core Capabilities
+## Core Capabilities (Verified)
 
 ### 1. Local File Access
-- Claude reads and writes files directly on your computer
-- No manual uploads or downloads required
-- Works with a designated folder you choose
+- Claude reads and modifies files within designated folders
+- Files are mounted into a sandboxed container environment
+- You choose which folders Claude can access
 
-### 2. Multi-Task Coordination
-- Breaks complex work into smaller subtasks
-- Coordinates parallel workstreams
-- Queue multiple tasks for execution
+### 2. Multi-Step Task Execution
+- Executes complex tasks without requiring user input between actions
+- Breaks work into smaller steps automatically
+- Reports progress during execution
 
-### 3. Professional Outputs
-- Excel spreadsheets with formulas
-- PowerPoint presentations
-- Formatted Word documents
-- Organized file structures
-
-### 4. Extended Execution
-- Handles complex tasks without conversation timeouts
-- Works independently while you focus elsewhere
-- Reports progress and completion
+### 3. Verified Use Cases
+Based on official sources and independent testing:
+- **File organization**: Sort, move, rename files by criteria
+- **Expense reports**: Assemble reports from receipt photos
+- **Media management**: Organize photos, documents, media files
+- **Content analysis**: Scan and analyze text files, identify patterns
+- **Research tasks**: Search and categorize information across files
 
 ## How It Works
 
-Cowork executes tasks through a 5-step process:
-
-1. **Analyze** - Understanding your request
-2. **Plan** - Breaking work into subtasks
-3. **Execute** - Running in virtual machine environment
-4. **Coordinate** - Managing parallel workstreams
-5. **Deliver** - Outputs to your file system
+1. You designate a folder for Claude to access
+2. Claude operates within a sandboxed virtual environment (Apple's VZVirtualMachine)
+3. Files are mounted into the container
+4. Claude executes tasks through natural language instructions
+5. Results appear in your designated folder
 
 ## Requirements
 
 | Requirement | Details |
 |-------------|---------|
-| App | Claude Desktop (macOS only) |
-| Plan | Max subscription required |
+| App | Claude Desktop (macOS only currently) |
+| Plan | **Max subscription required** ($100-200/month) |
 | Connection | Active internet required |
 | State | App must remain open during execution |
 
@@ -78,83 +72,68 @@ Cowork executes tasks through a 5-step process:
 1. Open **Claude Desktop** app
 2. Locate the **mode selector**
 3. Click the **Cowork tab**
-4. Switch to **"Tasks" mode**
-5. Assign Claude a task
+4. Select a folder to grant access
+5. Assign Claude a task with clear instructions
 
-## Example Use Cases
+## Example Tasks (Verified Working)
 
 ### File Organization
 ```
 "Sort all the PDFs in my Downloads folder by date and move them to appropriate subfolders"
 ```
 
-### Data Compilation
+### Expense Compilation
 ```
-"Create a spreadsheet from all the invoices in this folder with columns for date, vendor, and amount"
-```
-
-### Document Creation
-```
-"Draft a report from these meeting notes with an executive summary"
+"Go through the receipt photos in this folder and create a summary of expenses"
 ```
 
-### Research Synthesis
+### Content Analysis
 ```
-"Analyze these research papers and create a summary presentation"
+"Identify all draft files modified in the last 90 days and check which ones are ready for publication"
 ```
 
-## Advanced Features
-
-### Connectors
-- Integration with external information sources
-- Extend Claude's access beyond local files
-
-### Skills
-- Enhanced capabilities for document creation
-- Professional presentation generation
-
-### Browser Integration
-- Pairs with Claude in Chrome extension
-- Web-based task automation
+### Media Management
+```
+"Organize my photos by month and year into separate folders"
+```
 
 ## Current Limitations
 
 | Limitation | Description |
 |------------|-------------|
-| No Project Support | Cannot access Claude Projects |
+| macOS Only | Windows support planned but not available |
+| Max Plan Only | Not available on Pro or free plans |
+| Research Preview | Features may change, not production-ready |
+| No Projects | Cannot access Claude Projects |
 | No Memory | No cross-session memory |
-| No Sharing | Cannot share tasks/outputs |
-| macOS Only | Windows support planned |
-| App Open | App must stay open during tasks |
+| App Must Stay Open | Tasks stop if you close the app |
 
-## Safety & Control
+## Security Considerations
 
-- **Selective Access**: You choose which folders/connectors Claude can access
-- **User Control**: You maintain oversight of all operations
-- **Prompt Injection Defense**: Active development for security
-- **Destructive Actions**: Claude can perform if instructed (use caution)
+Anthropic explicitly warns users about:
 
-## Roadmap
+1. **Prompt Injection Risk**: Files you give Claude access to could contain malicious instructions
+2. **Accidental Deletion**: Claude can delete files if instructed (or misunderstanding instructions)
+3. **Sensitive Data**: Do not give access to folders with passwords, keys, or sensitive information
 
-Planned features:
-- Windows support
-- Cross-device sync
-- Enhanced connectors
-- Expanded file type support
+**Best Practices:**
+- Start with non-critical folders to test
+- Provide clear, unambiguous instructions
+- Review Claude's actions before confirming destructive operations
+- Back up important files before granting access
 
-## Reference Files
+## Browser Integration
 
-See `references/` for:
-- **getting-started.md** - Setup and first steps
-- **capabilities.md** - Detailed feature documentation
-- **use-cases.md** - Example workflows and patterns
+When paired with **Claude in Chrome** extension, Cowork can complete tasks requiring browser access for research and verification.
 
 ## Resources
 
+- [TechCrunch Announcement](https://techcrunch.com/2026/01/12/anthropics-new-cowork-tool-offers-claude-code-without-the-code/)
+- [Simon Willison's First Impressions](https://simonwillison.net/2026/Jan/12/claude-cowork/)
 - [Getting Started Guide](https://support.claude.com/en/articles/13345190-getting-started-with-cowork)
-- [Cowork Announcement Blog](https://claude.com/blog/cowork-research-preview)
 - [Claude Desktop Download](https://claude.com/download)
 
 ---
 
-*Skill generated from official Anthropic documentation. Last updated: January 2026.*
+*Skill packaged by Pathfinders Labs from verified sources. Last updated: January 13, 2026.*
+*This is documentation for a research preview feature. Capabilities may change.*
